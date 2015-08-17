@@ -63,4 +63,9 @@ describe Idea do
 			                       :revenue_streams => nil)
 		).to be_valid
 	end
+
+	it "does not allow duplicate names" do 
+		FactoryGirl.create(:idea, name: 'Awesome Idea')
+		expect(FactoryGirl.build(:idea, name: 'Awesome Idea')).to_not be_valid
+	end
 end
