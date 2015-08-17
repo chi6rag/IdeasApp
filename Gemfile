@@ -32,6 +32,19 @@ group :development do
 	# gem 'capistrano'
 end
 
+group :development, :test do
+  gem 'rspec-rails', '~> 3.1.0'
+  gem 'factory_girl_rails', '~> 4.5.0'
+  gem 'pry'
+end
+
+group :test do 
+	gem 'faker', '~> 1.4.3'
+	gem 'capybara', '~> 2.4.4'
+	gem 'guard-rspec', '~> 4.4.1'
+	gem 'launchy', '~> 2.4.3'
+end
+
 group :production do
 	gem 'pg'
 end
