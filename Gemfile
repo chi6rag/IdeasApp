@@ -2,8 +2,7 @@ source 'https://rubygems.org'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.0.1'
-# Rack provides a minimal interface for developing web applications 
-gem 'rack', '~> 1.5.5'
+
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.0'
 
