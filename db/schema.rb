@@ -11,13 +11,21 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150817031631) do
+ActiveRecord::Schema.define(version: 20150817090548) do
 
   create_table "ideas", force: true do |t|
     t.string   "name"
-    t.text     "description"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.text     "key_partners"
+    t.text     "key_activities"
+    t.text     "key_resources"
+    t.text     "value_propositions"
+    t.text     "customer_relationships"
+    t.text     "channels"
+    t.text     "customer_segments"
+    t.text     "cost_structure"
+    t.text     "revenue_streams"
   end
 
 end
