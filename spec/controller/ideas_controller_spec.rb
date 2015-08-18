@@ -65,32 +65,96 @@ describe IdeasController, type: :controller do
 	end
 
 	describe "POST #create" do 
+		
 		context "with valid attributes" do 
-			
-			it "saves the new idea into the database"
+			it "saves the new idea into the database" do 
+				expect{
+					post(:create, idea: FactoryGirl.attributes_for(:idea))
+				}.to change(Idea, :count).by(1)
+			end
 
-			it "redirects to the idea"
-
+			it "redirects to the idea#show" do
+				post(:create, idea: FactoryGirl.attributes_for(:idea))
+				expect(response).to redirect_to Idea.last
+			end
 		end
+
 		context "with invalid attributes" do 
-			it "does not save the new idea into the database"
-			it "re-renders the :new template"
+			it "does not save the new idea into the database" do 
+				expect{
+					post :create, idea: FactoryGirl.attributes_for(:invalid_idea)
+				}.to_not change(Idea, :count)
+			end
+
+			it "re-renders the :new template" do 
+				post :create, idea: FactoryGirl.attributes_for(:invalid_idea)
+				expect(response).to render_template(:new)
+			end
 		end
 	end
 
 	describe "PUT #update" do 
 		context "with valid attributes" do 
-			it "saves the updated idea into the database"
-			it "redirects to the idea"
+			before :each do 
+				@idea = FactoryGirl.create(:idea)
+			end
+
+			it "located the existing idea" do
+				put :update, id: @idea.id, idea: FactoryGirl.attributes_for(:idea)
+				expect(assigns(:idea)).to eq(@idea)
+			end
+
+			it "saves the updated idea into the database" do
+				new_idea_hash = FactoryGirl.attributes_for(:idea)
+				put :update, id: @idea.id, idea: new_idea_hash
+				@idea.reload
+				expect(@idea.name).to eq(new_idea_hash[:name])
+			end
+
+			it "redirects to the idea" do 
+				put :update, id: @idea.id, idea: FactoryGirl.attributes_for(:idea)
+				expect(response).to redirect_to(idea_path(id: @idea.id))
+			end
 		end
+
 		context "with invalid attributes" do 
-			it "does not save the updated idea into the database"
-			it "re-renders the :edit template"
+			before :each do 
+				@idea = FactoryGirl.create(:idea)
+			end
+
+			it "locates the existing idea" do 
+				put :update, id: @idea.id, idea: FactoryGirl.attributes_for(:invalid_idea)
+				expect(assigns(:idea)).to eq(@idea)
+			end
+
+			it "does not save the updated idea into the database" do 
+				new_invalid_idea = FactoryGirl.attributes_for(:invalid_idea)
+				put :update, id: @idea.id, idea: new_invalid_idea
+				@idea.reload
+				expect(@idea.name).to_not eq(new_invalid_idea[:name])
+			end
+
+			it "re-renders the :edit template" do 
+				put :update, id: @idea.id, idea: FactoryGirl.attributes_for(:invalid_idea)
+				expect(response).to render_template(:edit)
+			end
 		end
 	end
 
 	describe "DELETE #destroy" do
+		before :each do 
+			@idea = FactoryGirl.create(:idea)
+		end
+
 		it "deletes the respective idea" do 
+			expect{
+				delete :destroy, id: @idea.id
+			}.to change(Idea, :count).by(-1)
+		end
+
+		it "redirects to ideas#index" do 
+      delete :destroy, id: @idea.id
+      expect(response).to redirect_to ideas_path
 		end
 	end
 end
