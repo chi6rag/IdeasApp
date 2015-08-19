@@ -41,8 +41,11 @@ end
 group :test do 
 	gem 'faker', '~> 1.4.3'
 	gem 'capybara', '~> 2.4.4'
+	gem 'cucumber-rails', '~> 1.4.2'
 	gem 'guard-rspec', '~> 4.4.1'
 	gem 'launchy', '~> 2.4.3'
+	gem 'database_cleaner', '~> 1.3.0'
+	gem 'selenium-webdriver', '~> 2.44.0'
 end
 
 group :production do
