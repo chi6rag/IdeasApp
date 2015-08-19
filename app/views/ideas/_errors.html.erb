@@ -1,0 +1,28 @@
+<div class="modal fade" id="errorModal" tabindex="-1" role="dialog" aria-labelledby="errorModal">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <span class="heading">Errors</span>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body" id="error_explanation">
+        <ul>
+          <% @idea.errors.full_messages.each do |msg| %>
+            <li><%= msg %></li>
+          <% end %>
+          </ul>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+  $(document).ready(function(){
+    $('#errorModal').modal({
+      show: true,
+      keyboard: true,
+      backdrop: false
+    });
+  });
+</script>

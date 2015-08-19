@@ -1,57 +1,75 @@
-<%= form_for(@idea) do |f| %>
+  <%= form_for(@idea) do |f| %>
   <% if @idea.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@idea.errors.count, "error") %> prohibited this idea from being saved:</h2>
-
-      <ul>
-      <% @idea.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-      <% end %>
-      </ul>
-    </div>
+    <%= render partial: 'ideas/errors' %>
   <% end %>
 
-  <div class="field">
-    <%= f.label :name %><br>
-    <%= f.text_field :name %>
+  <div class="col-md-12 idea-heading-row">
+    <%= f.text_field :name, class: 'idea-heading-edit', placeholder: 'Your Awesome Idea' %>
   </div>
-  <div class="field">
-    <%= f.label :key_partners %><br>
-    <%= f.text_area :key_partners %>
+
+  <div class="col-md-2 col-sm-2 col-xs-12 key-partners-wrapper">
+    <%= f.label :key_partners %>
+    <%= f.text_area :key_partners, placeholder: 'Who are your key partners/suppliers?' %>
   </div>
-  <div class="field">
-    <%= f.label :key_activities %><br>
-    <%= f.text_area :key_activities %>
+  
+  <div class="col-md-3 col-sm-3 col-xs-12 key-activities-resources-wrapper">
+    <div class="key-activities">
+      <%= f.label :key_activities %>
+      <%= f.text_area :key_activities, placeholder: 'What key activities does your value proposition require?' %>
+    </div>
+    <div class="key-resources">
+      <%= f.label :key_resources %>
+      <%= f.text_area :key_resources, placeholder: 'What resources are important the most in distribution channels, customer relationships and revenue stream?' %>
+    </div>
   </div>
-  <div class="field">
-    <%= f.label :key_resources %><br>
-    <%= f.text_area :key_resources %>
+
+  <div class="col-md-2 col-sm-2 col-xs-12 value-propositions-wrapper">
+    <%= f.label :value_propositions %>
+    <%= f.text_area :value_propositions, placeholder: 'Which customer needs are you satisfying?' %>
   </div>
-  <div class="field">
-    <%= f.label :value_propositions %><br>
-    <%= f.text_area :value_propositions %>
+  
+  <div class="col-md-3 col-sm-3 col-xs-12 customer-relationships-channels-wrapper">
+    <div class="customer-relationships">
+      <%= f.label :customer_relationships %>
+      <%= f.text_area :customer_relationships, placeholder: 'What relationship that the target customer expects you to establish?' %>
+    </div>
+    <div class="customer-channels">
+      <%= f.label :channels %>
+      <%= f.text_area :channels, placeholder: 'Which channels work best? How much do they cost? How can they be integrated into your and your customers’ routines?' %>
+    </div>
   </div>
-  <div class="field">
-    <%= f.label :customer_relationships %><br>
-    <%= f.text_area :customer_relationships %>
+  
+  <div class="col-md-2 col-sm-2 col-xs-12 customer-segments-wrapper">
+    <%= f.label :customer_segments %>
+    <%= f.text_area :customer_segments, placeholder: 'Who is your most important customer?' %>
   </div>
-  <div class="field">
-    <%= f.label :channels %><br>
-    <%= f.text_area :channels %>
+  
+  <div class="col-md-12 cost-structure-revenue-streams-wrapper">
+    <div class="col-md-6  cost-structure">
+      <%= f.label :cost_structure %>
+      <%= f.text_area :cost_structure, placeholder: 'What are the costs in your business?' %>
+    </div>
+    <div class="col-md-6 revenue-streams">
+      <%= f.label :revenue_streams %>
+      <%= f.text_area :revenue_streams, placeholder: 'For what value are your customers willing to pay?' %>
+    </div>
   </div>
-  <div class="field">
-    <%= f.label :customer_segments %><br>
-    <%= f.text_area :customer_segments %>
-  </div>
-  <div class="field">
-    <%= f.label :cost_structure %><br>
-    <%= f.text_area :cost_structure %>
-  </div>
-  <div class="field">
-    <%= f.label :revenue_streams %><br>
-    <%= f.text_area :revenue_streams %>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
+  <div class="col-md-12 navigation-buttons">
+      <%= render partial: 'ideas/navigation_links', locals: {action_name: action_name, idea: @idea} %>
+      <%= f.submit class: 'create-update-idea-button btn btn-success pull-right' %>
+    </div>
 <% end %>
+
+<script>
+  $(document).ready(function(){
+    var elements = [ $('.key-partners-wrapper'), $('.key-activities'), $('.key-resources'),
+                     $('.value-propositions-wrapper'), $('.customer-relationships'),
+                     $('.customer-channels'), $('.customer-segments-wrapper'),
+                     $('.cost-structure'), $('.revenue-streams') ];
+    for(var i=0; i<elements.length; i++){
+      var wrapper  = elements[i];
+      var textArea = wrapper.find('textarea');
+      textArea.height(wrapper.height() - wrapper.find('label').height() - 12);
+    }
+  });
+</script>

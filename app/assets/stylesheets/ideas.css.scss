@@ -1,8 +1,12 @@
 $canvas-flat-blue:  #0099DC;
+$canvas-flat-light-blue: #1AA3E0;
 $canvas-light-grey: #F1F1F1;
+$canvas-light-input-grey: #F6F6F6;
 $canvas-dark-grey:  #7f8c8d;
+$placeholder-light-grey: #DCE0E0;
+$placeholder-light-blue: #5EB9E3;
 
-#idea-show {
+#idea-show, #idea-edit, #idea-new {
 	background: $canvas-flat-blue;
 	height: 100vh;
 	width: 100vw;
@@ -21,6 +25,31 @@ $canvas-dark-grey:  #7f8c8d;
 			font-size: 2em;
 			margin-bottom: 0.4em;
 			color: whitesmoke;
+
+			::-webkit-input-placeholder {
+			   color: $placeholder-light-blue;
+			}
+
+			:-moz-placeholder { /* Firefox 18- */
+			   color: $placeholder-light-blue;  
+			}
+
+			::-moz-placeholder {  /* Firefox 19+ */
+			   color: $placeholder-light-blue;  
+			}
+
+			:-ms-input-placeholder {  
+			   color: $placeholder-light-blue;  
+			}
+
+		}
+
+		.idea-heading-edit {
+			background-color: $canvas-flat-light-blue;
+	    border: 0px;
+	    text-align: center;
+	    position: relative;
+	    bottom: 6px;
 		}
 
 		.key-partners-wrapper, .key-activities-resources-wrapper, .value-propositions-wrapper,
@@ -34,8 +63,19 @@ $canvas-dark-grey:  #7f8c8d;
 			overflow: scroll;
 			text-align: justify;
 
-			h5 { text-align: center; }
+			textarea {
+				width: 100%;
+				background: $canvas-light-input-grey;
+				border: $canvas-light-input-grey;
+				padding-botton: 1em;
+			}
 
+			h5, label { display: block; text-align: center; }
+
+		}
+
+		.key-activities-resources-wrapper, .customer-relationships-channels-wrapper {
+			overflow: hidden;
 		}
 
 		.key-activities, .key-resources, .customer-relationships, .customer-channels {
@@ -43,6 +83,14 @@ $canvas-dark-grey:  #7f8c8d;
 			border-bottom: 1px solid white;
 			overflow: scroll;
 			text-align: justify;
+
+			textarea {
+				width: 100%;
+				background: $canvas-light-input-grey;
+				border: $canvas-light-input-grey;
+				padding-botton: 1em;
+			}
+
 		}
 
 		.cost-structure-revenue-streams-wrapper {
@@ -56,9 +104,42 @@ $canvas-dark-grey:  #7f8c8d;
 				color: $canvas-dark-grey;
 				overflow: scroll;
 				text-align: justify;
-				
-				h5 { text-align: center; }
 
+				textarea {
+					width: 100%;
+					background: $canvas-light-input-grey;
+					border: $canvas-light-input-grey;
+					padding-botton: 1em;
+				}
+				
+				h5, label { display: block; text-align: center; }
+
+			}
+
+		}
+
+		.key-partners-wrapper, .key-activities, .key-resources, .value-propositions-wrapper,
+		.customer-relationships, .customer-channels-wrapper, .customer-segments-wrapper,
+		.cost-structure, .revenue-streams{
+
+			::-webkit-input-placeholder {
+				color: $placeholder-light-grey;
+				text-align: center;
+			}
+
+			:-moz-placeholder { /* Firefox 18- */
+				color: $placeholder-light-grey;
+				text-align: center;
+			}
+
+			::-moz-placeholder {  /* Firefox 19+ */
+				color: $placeholder-light-grey;
+				text-align: center;
+			}
+
+			:-ms-input-placeholder {  
+				color: $placeholder-light-grey;
+				text-align: center;
 			}
 
 		}

@@ -1,6 +1,8 @@
 <div id="idea-show">
   <div class="container business-canvas-wrapper">
-    <p id="notice"><%= notice %></p>
+    <p id="notice">
+      <%= render partial: 'notice' %>
+    </p>
 
     <div class="col-md-12 idea-heading-row">
       <%= @idea.name %>
@@ -55,12 +57,7 @@
     </div>
 
     <div class="col-md-12 navigation-buttons">
-      &nbsp;
-      <%= link_to 'Edit', edit_idea_path(@idea) %>
-      &nbsp;&nbsp;&nbsp;
-      <%= link_to 'Delete', idea_path(@idea), method: :delete %>
-      &nbsp;&nbsp;&nbsp;
-      <%= link_to 'Back', ideas_path %>
+      <%= render partial: 'ideas/navigation_links', locals: {action_name: action_name, idea: @idea} %>
     </div>
 
   </div><!-- /container -->

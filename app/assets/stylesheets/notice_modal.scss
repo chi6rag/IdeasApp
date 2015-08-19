@@ -1,0 +1,30 @@
+$modal-grey: #7f8c8d;
+
+.modal-dialog {
+	width: 30vw;
+
+	.modal-content { border-radius: 2px  }
+	.modal-header {
+		padding: 20px 20px 0px 20px;
+		border-bottom: 0px;
+
+		span.heading {
+			font-size: 1.2em;
+		}
+
+	}
+	.modal-body {
+		position: relative;
+    padding: 15px;
+    padding-bottom: 40px;
+    font-size: 1.3em;
+    color: $modal-grey;
+    text-align: center;
+	}
+
+	.modal-body#error_explanation {
+		text-align: left;
+		padding-bottom: 25px;
+	}
+
+}
