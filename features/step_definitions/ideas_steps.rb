@@ -12,7 +12,7 @@ end
 
 Then (/^I should see a list of all the ideas$/) do
 	@ideas = Idea.all
-	within(:table) do 
+	within('.ideas-list') do 
 		@ideas.each do |idea|
 			idea_name = idea.name
 			expect(page).to have_content(idea_name)

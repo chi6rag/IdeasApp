@@ -1,0 +1,9 @@
+<% @background_url = 'http://res.cloudinary.com/chi6rag/image/upload/v1439996321/ideas/11850678_1676048915962135_8263161412263145069_o.jpg' %>
+
+<% if controller_name == 'ideas' && action_name == 'index' %>
+	<body style="background: url('<%= @background_url %>')">
+<% else %>
+	<body>
+<% end %>
+	<%= yield %>
+</body>

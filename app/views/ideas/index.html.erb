@@ -1,23 +1,21 @@
-<h1>Listing ideas</h1>
+<div class="ideas">
+  <div class="container">
+    <%= link_to 'New Idea', new_idea_path, class: 'btn btn-success new_idea pull-right' %>
+    <div class="col-md-10 col-md-offset-1 ideas-wrapper">
+      <h1 class="heading">Your Ideas</h1>
+      
+      <div class="ideas-list">
+        <% @ideas.each do |idea| %>
+          <div class="row idea well">
+            <div class="col-md-12">
+              <%= link_to idea.name, idea, class: 'idea_name' %>
+              <%= link_to '', idea_path(idea), method: :delete, class: 'fa fa-trash-o pull-right' %>
+              <%= link_to '', edit_idea_path(idea), class: 'fa fa-pencil-square-o pull-right' %>
+            </div>
+          </div>
+        <% end %>
+      </div>
 
-<table>
-  <thead>
-    <tr>
-      <th>S.No</th>
-      <th>Name</th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @ideas.each_with_index do |idea, index| %>
-      <tr>
-        <td><%= index+1 %></td>
-        <td><%= link_to idea.name, idea %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
-<br>
-
-<%= link_to 'New Idea', new_idea_path %>
+    </div>
+  </div>
+</div>

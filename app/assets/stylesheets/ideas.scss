@@ -1,0 +1,30 @@
+div.ideas {
+
+	a.new_idea {
+    position: relative;
+  	top: 1.5em;
+  }
+  
+  .heading {
+    text-align: center;
+  	margin-bottom: 0.5em;
+  	color: #70859B;
+  }
+
+	.idea.well {
+    min-height: 20px;
+    padding: 20px;
+    margin-bottom: 20px;
+    background: rgba(245,245,245,0.4);
+    border: 1px solid #A4B6C8;
+    border-radius: 2px;
+
+    .idea_name {
+    	font-size: 1.2em;
+    	&:hover {
+    		text-decoration: none;
+    	}
+    }
+	}
+	
+}
