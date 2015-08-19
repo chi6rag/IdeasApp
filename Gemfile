@@ -43,7 +43,7 @@ end
 group :test do 
 	gem 'faker', '~> 1.4.3'
 	gem 'capybara', '~> 2.4.4'
-	gem 'cucumber-rails', '~> 1.4.2'
+	gem 'cucumber-rails', :require => false
 	gem 'guard-rspec', '~> 4.4.1'
 	gem 'launchy', '~> 2.4.3'
 	gem 'database_cleaner', '~> 1.3.0'
