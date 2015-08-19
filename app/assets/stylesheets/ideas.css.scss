@@ -31,6 +31,8 @@ $canvas-dark-grey:  #7f8c8d;
 			border-bottom: 1px solid white;
 			border-right: 1px solid white;
 			color: $canvas-dark-grey;
+			overflow: scroll;
+			text-align: justify;
 
 			h5 { text-align: center; }
 
@@ -39,6 +41,8 @@ $canvas-dark-grey:  #7f8c8d;
 		.key-activities, .key-resources, .customer-relationships, .customer-channels {
 			height: 30vh;
 			border-bottom: 1px solid white;
+			overflow: scroll;
+			text-align: justify;
 		}
 
 		.cost-structure-revenue-streams-wrapper {
@@ -50,6 +54,8 @@ $canvas-dark-grey:  #7f8c8d;
 				height: inherit;
 				border-right: 1px solid white;
 				color: $canvas-dark-grey;
+				overflow: scroll;
+				text-align: justify;
 				
 				h5 { text-align: center; }
 
