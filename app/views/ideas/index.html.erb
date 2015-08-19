@@ -3,16 +3,16 @@
 <table>
   <thead>
     <tr>
+      <th>S.No</th>
       <th>Name</th>
-      <th></th>
     </tr>
   </thead>
 
   <tbody>
-    <% @ideas.each do |idea| %>
+    <% @ideas.each_with_index do |idea, index| %>
       <tr>
+        <td><%= index+1 %></td>
         <td><%= link_to idea.name, idea %></td>
-        <td><%= link_to 'Edit', edit_idea_path(idea) %></td>
       </tr>
     <% end %>
   </tbody>

@@ -1,49 +1,67 @@
-<p id="notice"><%= notice %></p>
+<div id="idea-show">
+  <div class="container business-canvas-wrapper">
+    <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Name:</strong>
-  <%= @idea.name %>
-</p>
+    <div class="col-md-12 idea-heading-row">
+      <%= @idea.name %>
+    </div>
+    
+    <div class="col-md-2 col-sm-2 col-xs-12 key-partners-wrapper">
+      <h5>Key Partners</h5>
+      <%= @idea.key_partners %>
+    </div>
+    
+    <div class="col-md-3 col-sm-3 col-xs-12 key-activities-resources-wrapper">
+      <div class="key-activities">
+        <h5>Key Activities</h5>
+        <%= @idea.key_activities %>
+      </div>
+      <div class="key-resources">
+        <h5>Key Resources</h5>
+        <%= @idea.key_resources %>
+      </div>
+    </div>
 
-<p>
-  <strong>Key Partners</strong>
-  <%= @idea.key_partners %>
-</p>
+    <div class="col-md-2 col-sm-2 col-xs-12 value-propositions-wrapper">
+      <h5>Value Propositions</h5>
+      <%= @idea.value_propositions %>
+    </div>
 
-<p>
-  <strong>Key activities</strong>
-  <%= @idea.key_activities %>
-</p>
+    <div class="col-md-3 col-sm-3 col-xs-12 customer-relationships-channels-wrapper">
+      <div class="customer-relationships">
+        <h5>Customer Relationships</h5>
+        <%= @idea.customer_relationships %>
+      </div>
+      <div class="customer-channels">
+        <h5>Idea Channels</h5>
+        <%= @idea.channels %>
+      </div>
+    </div>
 
-<p>
-  <strong>Key Resources</strong>
-  <%= @idea.key_resources %>
-</p>
-<p>
-  <strong>Value propositions</strong>
-  <%= @idea.value_propositions %>
-</p>
-<p>
-  <strong>Customer relationships</strong>
-  <%= @idea.customer_relationships %>
-</p>
-<p>
-  <strong>Channels</strong>
-  <%= @idea.channels %>
-</p>
-<p>
-  <strong>Customer segments</strong>
-  <%= @idea.customer_segments %>
-</p>
-<p>
-  <strong>Cost structure</strong>
-  <%= @idea.cost_structure %>
-</p>
-<p>
-  <strong>Revenue streams</strong>
-  <%= @idea.revenue_streams %>
-</p>
+    <div class="col-md-2 col-sm-2 col-xs-12 customer-segments-wrapper">
+      <h5>Customer Segments</h5>
+      <%= @idea.customer_segments %>
+    </div>
 
-<%= link_to 'Edit', edit_idea_path(@idea) %> |
-<%= link_to 'Delete', idea_path(@idea), method: :delete %> | 
-<%= link_to 'Back', ideas_path %>
+    <div class="col-md-12 cost-structure-revenue-streams-wrapper">
+      <div class="col-md-6 cost-structure">
+        <h5>Cost Structure</h5>
+        <%= @idea.cost_structure %><br>
+      </div>
+      <div class="col-md-6 revenue-streams">
+        <h5>Revenue Streams</h5>
+        <%= @idea.revenue_streams %><br>
+      </div>
+    </div>
+
+    <div class="col-md-12 navigation-buttons">
+      &nbsp;
+      <%= link_to 'Edit', edit_idea_path(@idea) %>
+      &nbsp;&nbsp;&nbsp;
+      <%= link_to 'Delete', idea_path(@idea), method: :delete %>
+      &nbsp;&nbsp;&nbsp;
+      <%= link_to 'Back', ideas_path %>
+    </div>
+
+  </div><!-- /container -->
+</div>

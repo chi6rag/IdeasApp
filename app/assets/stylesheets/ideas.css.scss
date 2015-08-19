@@ -1,3 +1,75 @@
-// Place all the styles related to the ideas controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+$canvas-flat-blue:  #0099DC;
+$canvas-light-grey: #F1F1F1;
+$canvas-dark-grey:  #7f8c8d;
+
+#idea-show {
+	background: $canvas-flat-blue;
+	height: 100vh;
+	width: 100vw;
+	font-family: 'Lato', sans-serif;
+
+	/* .business-canvas-wrapper */
+	.business-canvas-wrapper {
+		padding: 0px;
+		position: relative;
+		top: 50%;
+		transform: translateY(-50%);
+
+		.idea-heading-row {
+			height: 5vh;
+			text-align: center;
+			font-size: 2em;
+			margin-bottom: 0.4em;
+			color: whitesmoke;
+		}
+
+		.key-partners-wrapper, .key-activities-resources-wrapper, .value-propositions-wrapper,
+		.customer-relationships-channels-wrapper, .customer-segments-wrapper {
+			height: 60vh;
+			background: $canvas-light-grey;
+			padding: 1em;
+			border-bottom: 1px solid white;
+			border-right: 1px solid white;
+			color: $canvas-dark-grey;
+
+			h5 { text-align: center; }
+
+		}
+
+		.key-activities, .key-resources, .customer-relationships, .customer-channels {
+			height: 30vh;
+			border-bottom: 1px solid white;
+		}
+
+		.cost-structure-revenue-streams-wrapper {
+			height: 20vh;
+			background: $canvas-light-grey;
+			padding: 0px;
+
+			.cost-structure, .revenue-streams {
+				height: inherit;
+				border-right: 1px solid white;
+				color: $canvas-dark-grey;
+				
+				h5 { text-align: center; }
+
+			}
+
+		}
+
+		.navigation-buttons {
+			color: whitesmoke;
+			padding: 0px;
+			margin-top: 1em;
+			a{
+				color: white;
+				&:hover {
+					text-decoration: none;
+				}
+			}
+		}
+
+	}
+	/* /.business-canvas-wrapper */
+
+}
