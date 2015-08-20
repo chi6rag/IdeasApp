@@ -19,6 +19,12 @@ Feature: Ideas Page
     And I click on the "New Idea" link
     Then I should go to the new idea page
     When I fill in the "new idea" form with the values
+    | key_partners           | Key Partners           |
+		| key_activities         | Key Activities         |
+		And I click the "Create Idea" input submit tag
+		Then I should see an error modal with the following errors
+		| Name can't be blank |
+    When I fill in the "new idea" form with the values
 		| name                   | AwesomeIdea            |
 		| key_partners           | Key Partners           |
 		| key_activities         | Key Activities         |
@@ -31,6 +37,8 @@ Feature: Ideas Page
 		| revenue_streams        | Revenue Streams        |
 		And I click the "Create Idea" input submit tag
 		Then I should go to "AwesomeIdea" idea page
+		Then I should see a notice modal with the following notices
+		| Idea was successfully created. |
 		And I should see the details of "AwesomeIdea" as
 		| name                   | AwesomeIdea            |
 		| key_partners           | Key Partners           |
@@ -57,7 +65,9 @@ Feature: Ideas Page
 		| revenue_streams        | NewRevenue Streams        |
 		And I click the "Update Idea" input submit tag
 		Then I should go to "NewAwesomeIdea" idea page
-		And I should see the details of "AwesomeIdea" as
+		Then I should see a notice modal with the following notices
+		| Idea was successfully updated. |
+		And I should see the details of "NewAwesomeIdea" as
 		| name                   | NewAwesomeIdea            |
 		| key_partners           | NewKey Partners           |
 		| key_activities         | NewKey Activities         |

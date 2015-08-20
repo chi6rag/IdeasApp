@@ -57,6 +57,32 @@ When (/^I fill in the "(.*)" form with the values$/) do |form_name, table|
 	end
 end
 
+Then (/^I should see an error modal with the following errors$/) do |table|
+	# finding all the errors in the errorModal
+	error_modal = page.find(:css, '#errorModal', visible: true)
+	expected_errors = table.raw.flatten
+	expected_errors.each do |error|
+		expect(error_modal).to have_content(error)
+	end
+	# closing the errorModal
+	within('#errorModal') do
+    find('button.close').click
+	end
+end
+
+Then (/^I should see a notice modal with the following notices$/) do |table|
+	# finding all the notices in the noticeModal
+	notice_modal = page.find(:css, '#noticeModal', visible: true)
+	expected_notices = table.raw.flatten
+	expected_notices.each do |notice|
+		expect(notice_modal).to have_content(notice)
+	end
+	# closing the noticeModal
+	within('#noticeModal') do
+    find('button.close').click
+	end
+end
+
 And (/^I should see the details of "(.*)" as$/) do |idea_name, table|
 	@idea = Idea.find_by_name(idea_name)
 	table.rows_hash.each do |key, value|
